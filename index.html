@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>龍鳳大排檔 · 围挡开业全运营方案</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#C62828;--red-light:#FFE8E8;
+  --gold:#F4A100;--gold-light:#FFF3D6;
+  --dark:#2D2D2D;--gray:#666;--light:#F5F2ED;
+  --white:#FFF;--green:#2D6A4F;--green-light:#E8F5E9;
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:#FFFBF5;color:var(--dark);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  padding:0 10px;height:44px;
+  display:flex;align-items:center;
+  overflow-x:auto;scrollbar-width:none;
+}
+nav::-webkit-scrollbar{display:none}
+nav a{
+  white-space:nowrap;font-size:11px;color:var(--gray);
+  text-decoration:none;padding:4px 8px;border-radius:5px;
+  flex-shrink:0;font-weight:500;
+}
+nav a:hover,nav a.active{color:var(--red);background:var(--red-light)}
+.hero{
+  padding:70px 18px 32px;text-align:center;
+  background:linear-gradient(160deg,#111 0%,#1A1A2E 50%,#C62828 100%);
+  color:#FFF;min-height:55vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'🐉🔥🍜🥟🍺';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:140px;opacity:0.04;
+  letter-spacing:24px;pointer-events:none;
+}
+.hero .badge{
+  display:inline-block;background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(4px);padding:4px 14px;border-radius:20px;
+  font-size:10px;letter-spacing:2px;margin-bottom:14px;border:1px solid rgba(255,255,255,0.08);
+}
+.hero h1{font-size:clamp(26px,5vw,38px);font-weight:800;letter-spacing:2px;}
+.hero h1 span{color:var(--gold)}
+.hero .sub{font-size:clamp(12px,2vw,15px);opacity:.85;margin:6px 0 16px;font-weight:300;}
+.hero .tags{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;}
+.hero .tags span{background:rgba(255,255,255,0.1);padding:3px 9px;border-radius:14px;font-size:10px;border:1px solid rgba(255,255,255,0.08);}
+.hero .ref-badge{
+  margin-top:14px;background:rgba(255,255,255,0.06);padding:8px 14px;border-radius:8px;
+  font-size:11px;border:1px solid rgba(255,255,255,0.06);
+}
+.hero .ref-badge strong{color:var(--gold)}
+.container{max-width:780px;margin:0 auto;padding:0 16px;}
+.scene{padding:32px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.scene:last-child{border-bottom:none}
+.scene-title{font-size:clamp(17px,2.8vw,22px);font-weight:700;margin-bottom:8px;}
+.scene-title em{font-style:normal;color:var(--red)}
+.scene-title em.gold{color:var(--gold)}
+.s-divider{width:40px;height:3px;border-radius:2px;margin:5px 0 12px}
+.s-divider.red{background:var(--red)}
+.s-divider.gold{background:var(--gold)}
+.card{background:var(--white);border-radius:11px;padding:16px 14px;margin-bottom:9px;box-shadow:0 2px 14px rgba(0,0,0,0.05)}
+.card:last-child{margin-bottom:0}
+.card .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:5px;letter-spacing:1px}
+.card .tag.red{background:var(--red-light);color:var(--red)}
+.card .tag.gold{background:var(--gold-light);color:#A67C00}
+.card .tag.green{background:var(--green-light);color:var(--green)}
+.card .tag.blue{background:#E3F2FD;color:#0F3460}
+.card .tag.purple{background:#F3E5F5;color:#7B1FA2}
+.card h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.card p,.card li{font-size:13px;color:#555;line-height:1.7}
+.card ul{padding-left:15px;margin:4px 0}
+.card ul li{margin-bottom:3px}
+.card ul li::marker{color:var(--red)}
+.highlight{padding:10px 13px;border-radius:8px;border-left:3px solid var(--red);font-size:13px;color:#444;margin:8px 0}
+.highlight.gold{border-left-color:var(--gold);background:var(--gold-light)}
+.highlight.red{border-left-color:var(--red);background:var(--red-light)}
+.highlight.green{border-left-color:var(--green);background:var(--green-light)}
+.highlight.dark{border-left-color:#1A1A2E;background:#F0F0F5}
+.highlight strong{color:var(--dark)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.table-wrap{overflow-x:auto;margin:8px 0;border-radius:9px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+table{width:100%;border-collapse:collapse;font-size:12px;background:var(--white)}
+th{padding:8px 10px;text-align:left;font-weight:700;font-size:11px;letter-spacing:1px;background:var(--red);color:#FFF}
+th.gold{background:var(--gold);color:#111}
+th.dark{background:#1A1A2E}
+td{padding:7px 10px;border-bottom:1px solid #F0EDE8;color:#555}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#FAFAFA}
+.footer{text-align:center;padding:22px 18px;color:#AAA;font-size:11px;border-top:1px solid rgba(0,0,0,0.04)}
+.kpi-row{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.kpi-item{flex:1;min-width:70px;background:var(--white);border-radius:7px;padding:10px 7px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.kpi-item .num{font-size:20px;font-weight:900;color:var(--red)}
+.kpi-item .lbl{font-size:10px;color:var(--gray);margin-top:2px}
+.kpi-item.gold .num{color:var(--gold)}
+.kpi-item.blue .num{color:#0F3460}
+.fence-preview{
+  background:linear-gradient(135deg,#1A1A2E 0%,#2D2D2D 50%,#C62828 100%);
+  border-radius:12px;padding:24px 18px;margin:10px 0;color:#FFF;text-align:center;
+  position:relative;overflow:hidden;
+}
+.fence-preview::before{
+  content:'🐉';position:absolute;top:-10px;right:-10px;font-size:80px;opacity:0.06;
+}
+.fence-preview h4{font-size:22px;margin-bottom:4px;letter-spacing:3px;}
+.fence-preview .line{color:var(--gold);font-size:11px;letter-spacing:2px;margin-bottom:10px;}
+.fence-preview .feats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;}
+.fence-preview .feats span{background:rgba(255,255,255,0.1);padding:4px 10px;border-radius:14px;font-size:11px;}
+.fence-preview .cta{background:var(--gold);color:#111;padding:8px 24px;border-radius:6px;font-size:13px;font-weight:700;display:inline-block;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#strategy">品牌定位</a>
+  <a href="#fence">围挡设计</a>
+  <a href="#open">开业活动</a>
+  <a href="#pos">智能收银</a>
+  <a href="#kds">KDS厨房</a>
+  <a href="#online">线上运营</a>
+  <a href="#private">私域社群</a>
+  <a href="#budget">预算</a>
+  <a href="#timeline">时间线</a>
+  <a href="#kpi">目标</a>
+</nav>
+
+<div class="hero">
+  <div class="badge">🐉 龍鳳大排檔 · 围挡开业全运营方案</div>
+  <h1>龍鳳大排檔</h1>
+  <div class="sub">塘沽·杭州道 · 新店装修中 · 围挡蓄水 | 开业引爆</div>
+  <div class="tags">
+    <span>📍 塘沽杭州道</span>
+    <span>🍜 大排档·快餐简餐</span>
+    <span>🐉 龙凤打边炉兄弟店</span>
+    <span>🔥 围挡蓄水</span>
+  </div>
+  <div class="ref-badge">
+    🏆 参考老店 <strong>龙凤打边炉火锅（4.7⭐ · ¥81/人）</strong> 成功运营经验
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 01 品牌定位 -->
+<div class="scene" id="strategy">
+  <h2 class="scene-title">01 · 品牌定位 · <em>大排档的烟火气 + 打边炉的品质基因</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight gold">
+    <strong>🎯 核心定位：</strong>「龍鳳」品牌矩阵——老店<strong>龙凤打边炉（4.7⭐）</strong>做品质火锅打口碑，新店<strong>龍鳳大排檔</strong>做烟火气快餐走流量。老板在开发区打边炉已经验证了运营能力，塘沽新店复制成功经验，用大排档的接地气价格＋打边炉的品质标准，降维打击塘沽快餐市场。
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag red">🏆 老店经验可复制点</span>
+      <p>
+      <strong>龙凤打边炉（4.7⭐ ¥81/人）成功秘诀：</strong><br><br>
+      • <strong>品质食材</strong> — 打边炉的食材标准可以平移到大排档<br>
+      • <strong>口碑运营</strong> — 4.7分不是一天练成的，评价管理能力强<br>
+      • <strong>客群积累</strong> — 开发区老客群可以引到塘沽<br>
+      • <strong>供应链</strong> — 两个店共用采购渠道，降本<br>
+      • <strong>品牌溢价</strong> — "龙凤"本身就是信任背书
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">🆕 新店差异化定位</span>
+      <p>
+      <strong>龍鳳大排檔 vs 龙凤打边炉：</strong><br><br>
+      • <strong>品类不同：</strong>打边炉→品质火锅；大排档→市井快餐<br>
+      • <strong>客群互补：</strong>开发区白领 vs 塘沽社区家庭<br>
+      • <strong>价格错位：</strong>¥81人均 → ¥25-40人均，覆盖更宽<br>
+      • <strong>场景延伸：</strong>正餐火锅 → 全天快餐+宵夜<br><br>
+      <strong>一句话：</strong>"用打边炉的标准做大排档，塘沽人自己的烟火食堂"
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 02 围挡设计 -->
+<div class="scene" id="fence">
+  <h2 class="scene-title">02 · 围挡设计 · <em>让人停下来 · 掏出手机 · 扫码进群</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="fence-preview">
+    <h4>🐉 龍鳳大排檔</h4>
+    <div class="line">LONGFENG · CANTEEN</div>
+    <div class="feats">
+      <span>🔥 塘沽人的烟火食堂</span>
+      <span>🍜 大排档·接地气</span>
+      <span>🥟 龙凤品质·亲民价格</span>
+    </div>
+    <div style="border-top:1px dashed rgba(255,255,255,0.12);margin:10px 0;padding:6px 0;font-size:12px;opacity:.7;">
+      ⏳ 开业倒计时 XX 天 &nbsp;·&nbsp; 📍 杭州道贻信园东南23米
+    </div>
+    <div class="cta">🎁 扫码进群 · 开业送霸王餐</div>
+  </div>
+
+  <div class="grid-2" style="margin-top:10px;">
+    <div class="card">
+      <span class="tag red">🪧 围挡视觉策略</span>
+      <p>
+      <strong>主色调：</strong>中国红+金色（和龙凤打边炉统一品牌色）<br>
+      <strong>主视觉：</strong>龙凤图腾+大排档烟火气插画<br>
+      <strong>核心文案：</strong><br>
+      • "塘沽人自己的烟火食堂"<br>
+      • "龙凤品质·亲民价格——老板在开发区的打边炉4.7分"<br>
+      • "即将开业 · 进群抢霸王餐"<br><br>
+      <strong>必放信息：</strong>开业倒计时、地址、群二维码（3个）
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">🎯 围挡上的引流钩子</span>
+      <p>
+      <strong>三个钩子让路人扫码：</strong><br><br>
+      <strong>钩子① "进群抽霸王餐"</strong><br>
+      扫码进群 → 开业前抽10个免费吃名额<br><br>
+      <strong>钩子② "前100名送招牌菜"</strong><br>
+      扫码登记 → 开业到店免费领招牌菜1份<br><br>
+      <strong>钩子③ "转发朋友圈集赞有礼"</strong><br>
+      拍照围挡发朋友圈 → 集18赞送饮品<br><br>
+      <strong>💡 围挡上贴3个群的二维码，轮流展示，人满即换</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight dark">
+    <strong>🪧 围挡文案模板（可直接用）：</strong><br>
+    「🐉龍鳳大排檔 · 即将开业」<br>
+    「塘沽人的烟火食堂 —— 龙凤打边炉兄弟品牌」<br>
+    「🔥 大排档的价格 🏆 打边炉的品质」<br>
+    「📍 杭州道贻信园东南23米 · ⏳ 开业倒计时」<br>
+    「🎁 扫码进群 · 免费吃霸王餐 · 前100名到店送招牌菜」
+  </div>
+</div>
+
+<!-- 03 开业活动 -->
+<div class="scene" id="open">
+  <h2 class="scene-title">03 · 开业活动 · <em>简单直接 · 不搞花架子</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight red">
+    <strong>⚠️ 核心原则：</strong>大排档的客群对"复杂优惠"没耐心。开业活动<strong>必须简单直接</strong>——打折就打折，送就送，别搞充值免单之类花里胡哨的东西吓跑顾客。
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:18%;">时间</th><th style="width:32%;">活动</th><th>玩法</th><th style="width:13%;">预算</th></tr>
+      <tr>
+        <td><strong>D-14~D-1</strong></td>
+        <td>📱 线上蓄水</td>
+        <td>社群每日发装修进度+菜品预告，联合老店社群互推</td>
+        <td>¥0</td>
+      </tr>
+      <tr>
+        <td><strong>D-Day~D+3</strong></td>
+        <td>🔥 开业3天狂欢</td>
+        <td>全场8折，到店发朋友圈送招牌菜1份（成本控制在¥8以内）</td>
+        <td>¥500</td>
+      </tr>
+      <tr>
+        <td><strong>D+4~D+7</strong></td>
+        <td>🎯 第二波蓄力</td>
+        <td>招牌套餐特价（原价¥38 → 开业价¥19.9），限量每天50份</td>
+        <td>¥400</td>
+      </tr>
+      <tr>
+        <td><strong>D+8~D+14</strong></td>
+        <td>💳 储值锁客</td>
+        <td>充100送20，充200送50（收银系统一键开启）</td>
+        <td>¥0</td>
+      </tr>
+      <tr>
+        <td><strong>持续</strong></td>
+        <td>⭐ 好评有礼</td>
+        <td>大众点评/美团收藏打卡到店送饮品（禁好评返现）</td>
+        <td>¥200</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grid-2" style="margin-top:10px;">
+    <div class="card">
+      <span class="tag gold">🎯 必做：开业霸王餐</span>
+      <p>
+      <strong>围挡期蓄水目标：</strong>每个群拉满500人<br>
+      <strong>玩法：</strong><br>
+      ① 围挡扫码进群 → 自动弹出抽奖链接<br>
+      ② 开业前3天开奖，抽10个免费霸王餐<br>
+      ③ 中奖者到店拍照发朋友圈 → 二次裂变<br><br>
+      <strong>成本：</strong>10份×¥20成本=¥200（超值）
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag blue">📸 必做：朋友圈裂变</span>
+      <p>
+      <strong>开业3天，到店顾客：</strong><br><br>
+      ① 发朋友圈九宫格（菜品实拍）<br>
+      ② 定位龍鳳大排檔<br>
+      ③ 配文："塘沽新开的龙风大排档，味道真不错"<br>
+      ④ 给收银看 → 当场送饮品/招牌菜1份<br><br>
+      <strong>效果：</strong>1条朋友圈≈免费给300个好友曝光<br>
+      <strong>每天30人发朋友圈</strong> → 3天≈2.7万曝光
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 04 智能收银 -->
+<div class="scene" id="pos">
+  <h2 class="scene-title">04 · 美团智能版收银系统 · <em>新店一步到位</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="highlight green">
+    <strong>💡 为什么推荐：</strong>老板已经有打边炉老店的运营经验，新店直接上美团智能版，所有功能一步配齐——团购核销、会员储值、外卖接单、数据报表，省心省力。老板管两个店更轻松。
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>功能模块</th><th>解决什么问题</th><th>对大排档的价值</th></tr>
+      <tr><td><strong>收银点餐</strong></td><td>快餐大排档客流量大，点单快才能翻台快</td><td>收银+扫码点餐双通道，高峰期不排队</td></tr>
+      <tr><td><strong>团购核销</strong></td><td>美团/点评团券一站式核销</td><td>开业期团购量大，不用手动记账，月底对账不愁</td></tr>
+      <tr><td><strong>会员储值</strong></td><td>开业储值活动一键开启，自动到账</td><td>大排档靠复购，储值是锁客第一招</td></tr>
+      <tr><td><strong>外卖接单</strong></td><td>美团外卖+饿了么多平台聚合</td><td>大排档天然适合外卖，打印小票不丢单</td></tr>
+      <tr><td><strong>KDS厨显</strong></td><td>厨房看屏出餐，后厨不慌不乱</td><td>快餐高频出餐，KDS是大排档刚需</td></tr>
+      <tr><td><strong>经营报表</strong></td><td>日营收、菜品排行、客流分析一目了然</td><td>老板同时管两个店，数据化决策</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:10px;">
+    <span class="tag red">💰 顶配报价参考</span>
+    <p>
+    <strong>智能版收银机（1台）</strong> — 收银+点餐+团购核销+会员管理<br>
+    <strong>KDS厨房显示屏（1台）</strong> — 后厨看单出餐<br>
+    <strong>后厨打印机（1台）</strong> — 自动分单打印<br>
+    <strong>扫码设备（1台）</strong> — 团购核销+会员扫码<br><br>
+    <strong>套餐价约 ¥1,800-2,800</strong>（按门店需求配置，具体咨询销售）<br>
+    一次投入，长期省人工——大排档省一个收银员 ≈ 年省5万+
+    </p>
+  </div>
+</div>
+
+<!-- 05 KDS厨房 -->
+<div class="scene" id="kds">
+  <h2 class="scene-title">05 · KDS厨房显示系统 · <em>大排档的厨房不能再乱了</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag red">🔥 大排档的厨房痛点</span>
+      <p>
+      • 高峰期点单集中，后厨手忙脚乱<br>
+      • 纸质小票容易丢、湿水看不清<br>
+      • 出餐顺序靠吼，容易漏单错单<br>
+      • 新来的服务员不熟菜品，传菜混乱<br>
+      • 翻台快但出餐慢，顾客等太久差评
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">✅ KDS解决方案</span>
+      <p>
+      • 订单直达厨房大屏，按时间倒序排列<br>
+      • 超时自动变红提醒——"这桌等了15分钟！"<br>
+      • 菜品制作完成一键划菜，传菜员看屏端菜<br>
+      • 高峰期自动合并同类菜品（如3份炒饭一起炒）<br>
+      • 老板手机看实时出餐进度，远程就能管<br><br>
+      <strong>大排档轻松翻台率提升30%</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight dark">
+    <strong>🏪 龍鳳大排檔KDS部署建议：</strong><br>
+    • 厨房挂1台15寸厨显 → 炒菜区正前方，厨师抬头就看<br>
+    • 传菜口加1台小屏 → 出菜后传菜员扫码划菜<br>
+    • 高峰期设置"超时提醒"→ 10分钟变黄，15分钟变红<br>
+    • 和打边炉老店同一套收银系统 → 老板一个账号管两个店
+  </div>
+</div>
+
+<!-- 06 线上运营 -->
+<div class="scene" id="online">
+  <h2 class="scene-title">06 · 线上运营 · <em>小成本做同城曝光</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag blue">📱 大众点评·美团</span>
+      <p>
+      <strong>开业前（围挡期）：</strong><br>
+      • 马上在美团/点评上创建门店（联系销售加急）<br>
+      • 上传围挡效果图+老店打边炉的实拍菜品图<br>
+      • 设置开业团购套餐（2人尝鲜价¥39.9）<br><br>
+      <strong>开业期：</strong><br>
+      • 推推广通（每天¥50，定向塘沽3公里）<br>
+      • 鼓励到店顾客写评价（收藏打卡送饮品）<br>
+      • 保持评分在4.5以上——老店4.7，新店不能掉队<br><br>
+      <strong>参考老店经验：</strong>龙凤打边炉4.7⭐的运营方法可以直接复制
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag purple">🎬 抖音同城</span>
+      <p>
+      <strong>低预算操作（日均¥15）：</strong><br><br>
+      • <strong>内容方向：</strong>厨房烟火气——锅铲翻飞、热气腾腾<br>
+      • <strong>拍摄：</strong>手机横屏，拍大排档最真实的一面<br>
+      • <strong>频率：</strong>围挡期每周3条，开业期每天1条<br>
+      • <strong>投放：</strong>抖加同城¥50/条，定向塘沽3公里<br><br>
+      <strong>3个爆款选题：</strong><br>
+      ① "开发区打边炉4.7分的老板，在塘沽开了家大排档"<br>
+      ② "塘沽人的烟火食堂——几十块钱吃到撑"<br>
+      ③ "后厨实录：大排档一天卖出的炒饭能堆成山"<br><br>
+      <strong>预算：</strong>90天≈¥1,200（日均¥13）
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight gold">
+    <strong>🎯 老店引流到新店：</strong>龙凤打边炉（开发区4.7⭐）的客人很多住塘沽！开业前在打边炉门店/社群发海报："老板在塘沽开了家大排档，老顾客开业7折"，直接精准引流！
+  </div>
+</div>
+
+<!-- 07 私域社群 -->
+<div class="scene" id="private">
+  <h2 class="scene-title">07 · 私域社群 · <em>围挡期就开始养群</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <span class="tag red">📊 社群运营节奏</span>
+      <p>
+      <strong>围挡期（D-30~D-1）：蓄水群</strong><br>
+      • 每天发装修进度：装门头/桌子到货/试锅底<br>
+      • 每周抽1次霸王餐（群内互动）<br>
+      • 收集老店粉丝反馈："你最想大排档有什么菜？"<br><br>
+      <strong>开业期（D-Day~D+14）：活跃群</strong><br>
+      • 每日特价菜预告（仅群友可享）<br>
+      • 到店顾客发图领红包（¥1-2，提升活跃）<br>
+      • 开业火爆场面照片直播<br><br>
+      <strong>常态化（D+15后）：福利群</strong><br>
+      • 每周三群友专享日（特价菜+双倍积分）<br>
+      • 每月一次"老顾客回馈"（抽免费套餐）<br>
+      • 新品试吃邀请（第一批试吃官）
+      </p>
+    </div>
+    <div class="card">
+      <span class="tag green">🎯 拉人策略</span>
+      <p>
+      <strong>围挡扫码（占比30%）：</strong><br>
+      围挡上3个群二维码，轮换展示<br><br>
+      <strong>老店导流（占比40%）：</strong><br>
+      龙凤打边炉店内放海报+社群里发邀请<br><br>
+      <strong>开业裂变（占比30%）：</strong><br>
+      到店顾客发朋友圈→截图→拉进群→送饮品<br><br>
+      <strong>目标：</strong>开业前3个群各200人，开业后1个月各500人<br><br>
+      <strong>⏰ 群规要点：</strong><br>
+      • 不发广告（发现即踢）<br>
+      • 每周至少3次群互动<br>
+      • 群友到店报"群友"有隐藏福利
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight dark">
+    <strong>💡 老店的群可以直接复用：</strong>龙凤打边炉的社群里有大量开发区居民，但有一部分住塘沽的！在打边炉群里发一次 —— "老板在塘沽开了家新店，进群领霸王餐"—— 塘沽的客人直接导过来，0成本！
+  </div>
+</div>
+
+<!-- 08 预算 -->
+<div class="scene" id="budget">
+  <h2 class="scene-title">08 · 预算 · <em>控制成本 · 花在刀刃上</em></h2>
+  <div class="s-divider gold"></div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:25%;">项目</th><th style="width:13%;">预算</th><th>说明</th></tr>
+      <tr><td>🪧 围挡制作</td><td><strong>¥600</strong></td><td>喷绘布+安装，简单大气</td></tr>
+      <tr><td>🎁 开业霸王餐（10份）</td><td><strong>¥200</strong></td><td>抽奖送免费套餐，人均成本¥20</td></tr>
+      <tr><td>🔥 开业3天打折让利</td><td><strong>¥500</strong></td><td>8折，实际让利部分</td></tr>
+      <tr><td>📱 推广通（14天）</td><td><strong>¥700</strong></td><td>每天¥50，定向塘沽3公里</td></tr>
+      <tr><td>🎬 抖音抖加（90天）</td><td><strong>¥1,200</strong></td><td>每周投2-3条¥50，同城定向</td></tr>
+      <tr><td>🖨️ 传单+海报</td><td><strong>¥300</strong></td><td>围挡周边发传单（仅开业前3天）</td></tr>
+      <tr><td>📦 社群红包+互动</td><td><strong>¥200</strong></td><td>开业期群内互动红包</td></tr>
+      <tr><th class="dark" style="width:25%;">💰 开业总预算</th><th><strong>¥3,700</strong></th><th>控制预算，不乱花钱</th></tr>
+    </table>
+  </div>
+
+  <div class="highlight green">
+    <strong>💡 省钱Tips（老板同时管两个店的优势）：</strong><br>
+    • 围挡喷绘可以找老店合作过的广告公司，熟人价<br>
+    • 开业活动用的食材和老店共用采购，量大价优<br>
+    • 社群运营自己管（老板/老板娘自己发），0人工成本<br>
+    • 抖音自己手机拍，剪映剪，0制作费<br>
+    • 传单只印500份，精准投放到周边小区信箱+店铺门口
+  </div>
+</div>
+
+<!-- 09 时间线 -->
+<div class="scene" id="timeline">
+  <h2 class="scene-title">09 · 开业时间线 · <em>倒排工期·有条不紊</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:16%;">时间</th><th style="width:18%;">阶段</th><th>关键动作</th></tr>
+      <tr><td><strong>D-30~D-14</strong></td><td>🏗️ 筹备期</td><td>安装围挡、创建社群（3个群码贴在围挡上）、开通美团门店、设计团购套餐、准备开业物料</td></tr>
+      <tr><td><strong>D-14~D-7</strong></td><td>📱 蓄水期</td><td>社群每日发装修进度、抽奖预热、老店导流、抖音开始发内容</td></tr>
+      <tr><td><strong>D-7~D-1</strong></td><td>🔥 冲刺期</td><td>开业倒计时、霸王餐开奖、推广通开启、传单派发、收银系统调试完毕</td></tr>
+      <tr><td><strong>D-Day</strong></td><td>🎉 开业</td><td>全场8折、朋友圈裂变活动、抖音直播、投放抖加、社群实时分享</td></tr>
+      <tr><td><strong>D+1~D+14</strong></td><td>📈 稳定期</td><td>第二波特价套餐、储值活动开启、收集评价保评分、调整菜品结构</td></tr>
+      <tr><td><strong>D+15~D+30</strong></td><td>💪 常态化</td><td>每周三群友日、常态化推广通+抖加、菜品数据复盘</td></tr>
+    </table>
+  </div>
+
+  <div class="highlight gold">
+    <strong>⏰ 关键提醒：</strong><br>
+    • <strong>现在就要做的事：</strong>围挡设计+打印 → 挂上去后立刻贴群二维码！<br>
+    • <strong>D-7前必须完成：</strong>收银系统安装调试、团购套餐上架、社群拉到500人<br>
+    • <strong>老店配合：</strong>D-14开始在龙凤打边炉店内/群里发海报导流
+  </div>
+</div>
+
+<!-- 10 KPI -->
+<div class="scene" id="kpi" style="border-bottom:none;">
+  <h2 class="scene-title">10 · 目标与KPI · <em>跳一跳够得着</em></h2>
+  <div class="s-divider red"></div>
+
+  <div class="highlight red">
+    <strong>🎯 核心目标：</strong>开业第一月做到<strong>日均营收¥1,500</strong>（大排档快餐简餐标准），第二月做到¥2,500，第三月稳定在¥3,000+。大排档走量不走价，翻台快才是王道。
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-item"><div class="num">3个</div><div class="lbl">蓄水群·各500人</div></div>
+    <div class="kpi-item gold"><div class="num">¥1,500</div><div class="lbl">首月日均营收</div></div>
+    <div class="kpi-item blue"><div class="num">4.5⭐</div><div class="lbl">首月评分目标</div></div>
+    <div class="kpi-item gold"><div class="num">¥3,700</div><div class="lbl">开业总预算</div></div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:10px;">
+    <table>
+      <tr><th style="width:18%;">周期</th><th style="width:22%;">日均营收</th><th style="width:25%;">社群目标</th><th>评分目标</th></tr>
+      <tr><td><strong>开业期（D-Day~D+14）</strong></td><td>¥800-1,200</td><td>3个群各300人</td><td>4.0⭐</td></tr>
+      <tr><td><strong>稳定期（D+15~D+30）</strong></td><td>¥1,500-2,000</td><td>3个群各500人</td><td>4.3⭐</td></tr>
+      <tr><td><strong>常态化（D+31~D+90）</strong></td><td>¥2,500-3,000</td><td>5个群各500人</td><td>4.5⭐</td></tr>
+    </table>
+  </div>
+
+  <div class="highlight dark" style="margin-top:10px;">
+    <strong>🔥 一句话总结：</strong>龍鳳大排檔 · 龙凤打边炉兄弟品牌——<strong>用打边炉的品质标准做大排档，用塘沽的烟火气做快餐。</strong>围挡蓄水→开业引爆→社群锁客→数据迭代，三个月把塘沽杭州道变成"龍鳳一条街"！老板已经有了一个4.7⭐的成功经验，复制到新店，稳了 👊
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  🐉 龍鳳大排檔 · 围挡开业全运营方案 · 2026年6月<br>
+  参考龙凤打边炉火锅（4.7⭐·¥81/人）成功运营经验 · 塘沽杭州道
+</div>
+
+<script>
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, {rootMargin:'-55px 0px -50% 0px'});
+document.querySelectorAll('.scene').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
